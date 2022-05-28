@@ -10,6 +10,6 @@ COPY . /usr/src/app
 ARG env=prod
 RUN npm run build -- --prod
 
-FROM nginx
+FROM nginx:1.22
 COPY --from=node /usr/src/app/dist/ /usr/share/nginx/html
 COPY nginx-custom.conf /etc/nginx/conf.d/default.conf
